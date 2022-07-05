@@ -8,6 +8,15 @@ module top_module (
     one_bit_fulladder instance2(x[1], y[1], cout[0], cout[1], sum[1]);
     one_bit_fulladder instance3(x[2], y[2], cout[1], cout[2], sum[2]);
     one_bit_fulladder instance4(x[3], y[3], cout[2], sum[4], sum[3]);
+    
+    	// This circuit is a 4-bit ripple-carry adder with carry-out.
+	//assign sum = x+y;	// Verilog addition automatically produces the carry-out bit.
+
+	// Verilog quirk: Even though the value of (x+y) includes the carry-out, (x+y) is still considered to be a 4-bit number (The max width of the two operands).
+	// This is correct:
+	// assign sum = (x+y);
+	// But this is incorrect:
+	// assign sum = {x+y};	// Concatenation operator: This discards the carry-out
   
 endmodule
 
