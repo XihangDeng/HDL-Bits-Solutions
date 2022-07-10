@@ -5,7 +5,7 @@ module top_module (
     always@(*)begin
         if(ena)
            q=d; 
-    
+    end
 endmodule
 
 //Latches are level-sensitive (not edge-sensitive) circuits, so in an always block, they use level-sensitive sensitivity lists.
